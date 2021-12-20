@@ -16,10 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oIK-5t-heU">
-                                <rect key="frame" x="20" y="86" width="728" height="844"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ju6-FR-evE">
                                 <rect key="frame" x="20" y="951" width="203" height="53"/>
                                 <state key="normal" title="Button"/>
@@ -34,20 +30,28 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
                                 </buttonConfiguration>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fabricantes de cervezas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lac-wT-IVm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fabricantes de cervezas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lac-wT-IVm">
                                 <rect key="frame" x="108" y="20" width="552" height="51"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                 <color key="textColor" systemColor="systemBrownColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oIK-5t-heU">
+                                <rect key="frame" x="20" y="86" width="728" height="844"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="PUD-7Y-o1p"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Lj1-u4-NzI"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6GP-AO-2mz" firstAttribute="top" secondItem="oIK-5t-heU" secondAttribute="bottom" constant="21" id="2xR-Kp-EAk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lac-wT-IVm" secondAttribute="bottom" constant="953" id="392-7h-rgx"/>
                             <constraint firstItem="ju6-FR-evE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="931" id="3Pz-jm-O9d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6GP-AO-2mz" secondAttribute="bottom" constant="20" id="5Jy-sq-3P7"/>
-                            <constraint firstItem="lac-wT-IVm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8g2-lv-Mzp"/>
                             <constraint firstItem="6GP-AO-2mz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="545" id="AQr-v0-EaG"/>
                             <constraint firstItem="ju6-FR-evE" firstAttribute="width" secondItem="6GP-AO-2mz" secondAttribute="width" id="FBl-0K-veD"/>
                             <constraint firstItem="ju6-FR-evE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Gym-BF-ImE"/>
@@ -55,11 +59,14 @@
                             <constraint firstItem="oIK-5t-heU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="PdN-2U-cz0"/>
                             <constraint firstItem="oIK-5t-heU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SNJ-V1-znb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oIK-5t-heU" secondAttribute="bottom" constant="94" id="SVu-pO-VaC"/>
+                            <constraint firstItem="ju6-FR-evE" firstAttribute="height" secondItem="6GP-AO-2mz" secondAttribute="height" id="V4t-dR-ZuF"/>
+                            <constraint firstItem="lac-wT-IVm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eew-F9-kN5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oIK-5t-heU" secondAttribute="trailing" constant="20" id="fE5-zy-3lg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ju6-FR-evE" secondAttribute="bottom" constant="20" id="fYT-8p-khD"/>
                             <constraint firstItem="6GP-AO-2mz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="931" id="fys-zb-P9c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ju6-FR-evE" secondAttribute="trailing" constant="545" id="gY9-l9-u8i"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6GP-AO-2mz" secondAttribute="trailing" constant="20" id="wco-VL-5lI"/>
+                            <constraint firstItem="ju6-FR-evE" firstAttribute="top" secondItem="oIK-5t-heU" secondAttribute="bottom" constant="21" id="z5y-c8-IyS"/>
                             <constraint firstItem="lac-wT-IVm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="108" id="zA3-8W-mfb"/>
                         </constraints>
                     </view>
