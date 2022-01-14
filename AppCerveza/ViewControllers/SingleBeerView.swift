@@ -11,9 +11,12 @@ import UIKit
 
 class SingleBeerView : UIViewController {
     
+    weak var bv = BeersView()
     var constraints = [NSLayoutConstraint]()
     var etiqueta = UILabel()
     var botonAtras = UIButton()
+    var fila = 0
+    var nombreFabricante = ""
     var nombre = UILabel()
     var grad = Float()
     var graduacion = UILabel()

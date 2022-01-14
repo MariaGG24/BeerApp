@@ -16,6 +16,9 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var constraints = [NSLayoutConstraint]()
     var botonAtras = UIButton()
     var etiqueta = UILabel()
+    var nombreFab = ""
+    var pais = 0
+    var fila = 0
     
     override func loadView() {
         super.loadView()
@@ -61,6 +64,15 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell?.textLabel?.text = "\(indexPath.row)"
         
         return cell!
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sbv = SingleBeerView()
+        sbv.modalTransitionStyle = .flipHorizontal
+        sbv.modalPresentationStyle = .formSheet
+        sbv.bv = self
+        sbv.fila = indexPath.row
+        present(sbv, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

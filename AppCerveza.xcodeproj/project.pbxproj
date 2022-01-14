@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A0E7DC8279216090028CE0E /* AddBeerMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E7DC7279216090028CE0E /* AddBeerMakerView.swift */; };
 		8A32F4C32790E5F9002111E0 /* Cerveza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32F4C22790E5F9002111E0 /* Cerveza.swift */; };
 		8A32F4CC2790F930002111E0 /* cerveza.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A32F4CB2790F930002111E0 /* cerveza.png */; };
 		8A32F4CF2790FB84002111E0 /* Fabricante.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32F4CE2790FB84002111E0 /* Fabricante.swift */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A0E7DC7279216090028CE0E /* AddBeerMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerMakerView.swift; sourceTree = "<group>"; };
+		8A0E7DC9279216300028CE0E /* VistaNuevoFabricante.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaNuevoFabricante.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8A32F4C127906280002111E0 /* VistaCervezas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaCervezas.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8A32F4C22790E5F9002111E0 /* Cerveza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cerveza.swift; sourceTree = "<group>"; };
 		8A32F4C62790EC02002111E0 /* VistaIndividualCerveza.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaIndividualCerveza.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -70,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				8A692D3C276D551900D64504 /* Data */,
-				8A692D3B276D551100D64504 /* Controllers */,
+				8A692D3B276D551100D64504 /* ViewControllers */,
 				8A692D39276D4B7B00D64504 /* Playgrounds */,
 				8A692D38276D4A2D00D64504 /* Imágenes */,
 				8A692D24276D496E00D64504 /* AppDelegate.swift */,
@@ -100,18 +103,20 @@
 				8A692D3A276D53DD00D64504 /* VistaMarcas.playground */,
 				8A32F4C127906280002111E0 /* VistaCervezas.playground */,
 				8A32F4C62790EC02002111E0 /* VistaIndividualCerveza.playground */,
+				8A0E7DC9279216300028CE0E /* VistaNuevoFabricante.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
 		};
-		8A692D3B276D551100D64504 /* Controllers */ = {
+		8A692D3B276D551100D64504 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				8A692D28276D496E00D64504 /* BeerMakersView.swift */,
 				8AF8EA96277110AC00E531B1 /* BeersView.swift */,
 				8AF8EA98277110EA00E531B1 /* SingleBeerView.swift */,
+				8A0E7DC7279216090028CE0E /* AddBeerMakerView.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		8A692D3C276D551900D64504 /* Data */ = {
@@ -212,6 +217,7 @@
 				8AF8EA97277110AC00E531B1 /* BeersView.swift in Sources */,
 				8A692D29276D496E00D64504 /* BeerMakersView.swift in Sources */,
 				8AF8EA99277110EB00E531B1 /* SingleBeerView.swift in Sources */,
+				8A0E7DC8279216090028CE0E /* AddBeerMakerView.swift in Sources */,
 				8A692D25276D496E00D64504 /* AppDelegate.swift in Sources */,
 				8A32F4C32790E5F9002111E0 /* Cerveza.swift in Sources */,
 				8A32F4CF2790FB84002111E0 /* Fabricante.swift in Sources */,

@@ -75,6 +75,16 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell!
     }
     
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let bv = BeersView()
+        bv.modalPresentationStyle = .formSheet
+        bv.modalTransitionStyle = .flipHorizontal
+        bv.bmv = self
+        bv.pais = indexPath.section
+        bv.fila = indexPath.row
+        present(bv, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0
         {
@@ -135,7 +145,7 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func botonAnadir(_ sender : UIButton) {
-//        etiqueta.text = "Has pulsado el botón de Añadir Fabricante"
+        
     }
     
     @objc func botonEliminar(_ sender : UIButton) {
