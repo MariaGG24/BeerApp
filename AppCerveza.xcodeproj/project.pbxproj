@@ -7,28 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A32F4C32790E5F9002111E0 /* Cerveza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32F4C22790E5F9002111E0 /* Cerveza.swift */; };
+		8A32F4CC2790F930002111E0 /* cerveza.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A32F4CB2790F930002111E0 /* cerveza.png */; };
+		8A32F4CF2790FB84002111E0 /* Fabricante.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32F4CE2790FB84002111E0 /* Fabricante.swift */; };
 		8A692D25276D496E00D64504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A692D24276D496E00D64504 /* AppDelegate.swift */; };
 		8A692D27276D496E00D64504 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A692D26276D496E00D64504 /* SceneDelegate.swift */; };
-		8A692D29276D496E00D64504 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A692D28276D496E00D64504 /* FirstViewController.swift */; };
+		8A692D29276D496E00D64504 /* BeerMakersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A692D28276D496E00D64504 /* BeerMakersView.swift */; };
 		8A692D2C276D496E00D64504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A692D2A276D496E00D64504 /* Main.storyboard */; };
 		8A692D2E276D497000D64504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A692D2D276D497000D64504 /* Assets.xcassets */; };
 		8A692D31276D497000D64504 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A692D2F276D497000D64504 /* LaunchScreen.storyboard */; };
-		8AF8EA97277110AC00E531B1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8EA96277110AC00E531B1 /* SecondViewController.swift */; };
-		8AF8EA99277110EB00E531B1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8EA98277110EA00E531B1 /* ThirdViewController.swift */; };
+		8AF8EA97277110AC00E531B1 /* BeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8EA96277110AC00E531B1 /* BeersView.swift */; };
+		8AF8EA99277110EB00E531B1 /* SingleBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8EA98277110EA00E531B1 /* SingleBeerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A32F4C127906280002111E0 /* VistaCervezas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaCervezas.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8A32F4C22790E5F9002111E0 /* Cerveza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cerveza.swift; sourceTree = "<group>"; };
+		8A32F4C62790EC02002111E0 /* VistaIndividualCerveza.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaIndividualCerveza.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8A32F4CB2790F930002111E0 /* cerveza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cerveza.png; sourceTree = "<group>"; };
+		8A32F4CE2790FB84002111E0 /* Fabricante.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fabricante.swift; sourceTree = "<group>"; };
 		8A692D21276D496E00D64504 /* AppCerveza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppCerveza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A692D24276D496E00D64504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A692D26276D496E00D64504 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8A692D28276D496E00D64504 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		8A692D28276D496E00D64504 /* BeerMakersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerMakersView.swift; sourceTree = "<group>"; };
 		8A692D2B276D496E00D64504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A692D2D276D497000D64504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A692D30276D497000D64504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A692D32276D497000D64504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A692D3A276D53DD00D64504 /* AppCerveza.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppCerveza.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		8AF8EA96277110AC00E531B1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		8AF8EA98277110EA00E531B1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		8A692D3A276D53DD00D64504 /* VistaMarcas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaMarcas.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8AF8EA96277110AC00E531B1 /* BeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersView.swift; sourceTree = "<group>"; };
+		8AF8EA98277110EA00E531B1 /* SingleBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBeerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,8 @@
 		8A692D38276D4A2D00D64504 /* Imágenes */ = {
 			isa = PBXGroup;
 			children = (
+				8AF8EA9B2771173700E531B1 /* Cervezas */,
+				8AF8EA9A2771173200E531B1 /* Fabricantes */,
 			);
 			name = "Imágenes";
 			path = "Imágenes";
@@ -86,7 +96,10 @@
 		8A692D39276D4B7B00D64504 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				8A692D3A276D53DD00D64504 /* AppCerveza.playground */,
+				8A32F4CB2790F930002111E0 /* cerveza.png */,
+				8A692D3A276D53DD00D64504 /* VistaMarcas.playground */,
+				8A32F4C127906280002111E0 /* VistaCervezas.playground */,
+				8A32F4C62790EC02002111E0 /* VistaIndividualCerveza.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
@@ -94,9 +107,9 @@
 		8A692D3B276D551100D64504 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8A692D28276D496E00D64504 /* FirstViewController.swift */,
-				8AF8EA96277110AC00E531B1 /* SecondViewController.swift */,
-				8AF8EA98277110EA00E531B1 /* ThirdViewController.swift */,
+				8A692D28276D496E00D64504 /* BeerMakersView.swift */,
+				8AF8EA96277110AC00E531B1 /* BeersView.swift */,
+				8AF8EA98277110EA00E531B1 /* SingleBeerView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -104,8 +117,24 @@
 		8A692D3C276D551900D64504 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8A32F4C22790E5F9002111E0 /* Cerveza.swift */,
+				8A32F4CE2790FB84002111E0 /* Fabricante.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		8AF8EA9A2771173200E531B1 /* Fabricantes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fabricantes;
+			sourceTree = "<group>";
+		};
+		8AF8EA9B2771173700E531B1 /* Cervezas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cervezas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +197,7 @@
 			files = (
 				8A692D31276D497000D64504 /* LaunchScreen.storyboard in Resources */,
 				8A692D2E276D497000D64504 /* Assets.xcassets in Resources */,
+				8A32F4CC2790F930002111E0 /* cerveza.png in Resources */,
 				8A692D2C276D496E00D64504 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,10 +209,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AF8EA97277110AC00E531B1 /* SecondViewController.swift in Sources */,
-				8A692D29276D496E00D64504 /* FirstViewController.swift in Sources */,
-				8AF8EA99277110EB00E531B1 /* ThirdViewController.swift in Sources */,
+				8AF8EA97277110AC00E531B1 /* BeersView.swift in Sources */,
+				8A692D29276D496E00D64504 /* BeerMakersView.swift in Sources */,
+				8AF8EA99277110EB00E531B1 /* SingleBeerView.swift in Sources */,
 				8A692D25276D496E00D64504 /* AppDelegate.swift in Sources */,
+				8A32F4C32790E5F9002111E0 /* Cerveza.swift in Sources */,
+				8A32F4CF2790FB84002111E0 /* Fabricante.swift in Sources */,
 				8A692D27276D496E00D64504 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +371,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +399,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
