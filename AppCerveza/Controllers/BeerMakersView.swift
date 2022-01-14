@@ -70,6 +70,8 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell?.textLabel?.textAlignment = .center
         cell?.textLabel?.text = "\(indexPath.row)"
         
+        
+        
         return cell!
     }
     
