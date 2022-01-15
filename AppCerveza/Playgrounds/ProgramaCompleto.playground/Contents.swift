@@ -16,8 +16,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
     var cerveza = Cerveza()
     var i = 0
     
-    
-    
     var fabricantes = [Fabricante]()
     var fabricantesNacionales = [Fabricante]()
     var fabricantesExtranjeros = [Fabricante]()
@@ -95,7 +93,7 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = VistaCervezas()
-        vc.modalPresentationStyle = .formSheet
+        vc.modalPresentationStyle = .currentContext
         vc.modalTransitionStyle = .flipHorizontal
         vc.vm = self
         //vc.pais = indexPath.section
@@ -411,6 +409,7 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
     var cervezasOrdenadas = [Cerveza]()
     var fabricante = Fabricante()
     var filasSeccion = [Int]()
+    var i = 0
     
     var fila = 0
     
@@ -422,7 +421,7 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
         
         prepararTableView()
         prepararEtiqueta()
-        prepararBotones()
+        prepararBoton()
         prepararConstraints()
         
         view.addSubview(tv)
@@ -486,19 +485,37 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
                 seccion = indexPath.section
             }
         }*/
-        cell?.textLabel?.text = cervezasOrdenadas[indexPath.row].nombre
+        //cell?.textLabel?.text = cervezasOrdenadas[indexPath.row].nombre
+        cell?.textLabel?.text = cervezasOrdenadas[i].nombre
+        i = i + 1
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vic = VistaIndividualCerveza()
+        vic.modalTransitionStyle = .flipHorizontal
+        vic.modalPresentationStyle = .currentContext
+        vic.vc = self
+        vic.cervezas = cervezasOrdenadas
+        vic.tipos = tiposCerveza
+        vic.seccion = indexPath.section
+        vic.fila = indexPath.row
+        vic.filasSec = filasSeccion
+        present(vic, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
        return tiposCerveza[section]
     }
     
-    func prepararBotones() {
+    func prepararBoton() {
         botonAtras.translatesAutoresizingMaskIntoConstraints = false
-        botonAtras.contentHorizontalAlignment = .center
         botonAtras.setTitle("Atrás", for: .normal)
+        botonAtras.setTitleColor(.blue, for: .normal)
+        botonAtras.contentHorizontalAlignment = .center
+        botonAtras.layer.cornerRadius = 4
+        botonAtras.backgroundColor = .lightGray
         botonAtras.addTarget(self, action: #selector(VistaCervezas.atras), for: .touchUpInside)
     }
     
@@ -519,7 +536,7 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
         constraints.append(tv.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
         constraints.append(tv.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20))
         
-        constraints.append(botonAtras.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 5))
+        constraints.append(botonAtras.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
         constraints.append(botonAtras.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
         constraints.append(botonAtras.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
     }
@@ -546,7 +563,6 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
                 ordenarCervezas(fabricante.cervezas![i].tipo)
             }
         }
-        //calcularFilasSeccion()
     }
     
     func ordenarCervezas(_ tipo : String) {
@@ -574,13 +590,19 @@ class VistaIndividualCerveza : UIViewController {
     var etiqueta = UILabel()
     var botonAtras = UIButton()
     var nombre = UILabel()
-    var grad = Float()
     var graduacion = UILabel()
-    var apCalorias = Float()
     var aporteCalorico = UILabel()
     var t = String()
     var tipo = UILabel()
     var iV = UIImageView()
+    
+    //VARIABLES DE PRUEBA
+    var cervezas = [Cerveza]()
+    var tipos = [String]()
+    var seccion = Int()
+    var fila = Int()
+    var filasSec = [Int]()
+    var cervezaElegida = Cerveza()
     
     override func loadView() {
         super.loadView()
@@ -588,9 +610,9 @@ class VistaIndividualCerveza : UIViewController {
         view.frame = CGRect(x: 0, y: 0, width: 512, height: 512)
         view.backgroundColor = .white
         
+        prepararElementosInformacion()
         prepararEtiqueta()
         prepararBoton()
-        prepararElementosInformacion()
         prepararConstraints()
         
         view.addSubview(etiqueta)
@@ -606,7 +628,7 @@ class VistaIndividualCerveza : UIViewController {
     
     func prepararEtiqueta() {
         etiqueta.translatesAutoresizingMaskIntoConstraints = false
-        etiqueta.text = "Nombre de la cerveza"
+        etiqueta.text = "Información sobre " + cervezaElegida.nombre
         etiqueta.textColor = .systemBrown
         etiqueta.textAlignment = .center
         etiqueta.font = UIFont(name: "Chalkduster", size: 20.0)
@@ -623,36 +645,43 @@ class VistaIndividualCerveza : UIViewController {
     }
     
     func prepararElementosInformacion() {
+        
+        var pos = 0
+        
+        while cervezas[pos].tipo != tipos[seccion]
+        {
+            pos = pos + 1
+        }
+        pos = pos + fila
+        cervezaElegida = cervezas[pos]
+        
         nombre.translatesAutoresizingMaskIntoConstraints = false
-        nombre.text = "Nombre de la Cerveza"
+        nombre.text = "Nombre de la Cerveza: " + cervezaElegida.nombre
         nombre.textAlignment = .center
         nombre.textColor = .systemBrown
         nombre.font = UIFont(name: "Chalkduster", size: 15.0)
         
-        grad = 5.4
         graduacion.translatesAutoresizingMaskIntoConstraints = false
-        graduacion.text = "Graduación de la Cerveza: " + String(grad)
+        graduacion.text = "Graduación de la Cerveza: " + String(cervezaElegida.graduacion)
         graduacion.textAlignment = .center
         graduacion.textColor = .systemBrown
         graduacion.font = UIFont(name: "Chalkduster", size: 15.0)
         
-        apCalorias = 43.0
         aporteCalorico.translatesAutoresizingMaskIntoConstraints = false
-        aporteCalorico.text = "Aporte calórico de la Cerveza: " + String(apCalorias)
+        aporteCalorico.text = "Aporte calórico de la Cerveza: " + String(cervezaElegida.aporteCalorico)
         aporteCalorico.textAlignment = .center
         aporteCalorico.textColor = .systemBrown
         aporteCalorico.font = UIFont(name: "Chalkduster", size: 15.0)
         
-        t = "IPA"
         tipo.translatesAutoresizingMaskIntoConstraints = false
-        tipo.text = "Tipo de la Cerveza: " + t
+        tipo.text = "Tipo de la Cerveza: " + cervezaElegida.tipo
         tipo.textAlignment = .center
         tipo.textColor = .systemBrown
         tipo.font = UIFont(name: "Chalkduster", size: 15.0)
         
         iV.translatesAutoresizingMaskIntoConstraints = false
         iV.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        iV.image = UIImage(named: "cerveza.jpg")
+        iV.image = UIImage(named: "cerveza.jpg") //Añadir aquí nombre de la foto que coincida con el de la cerveza para la foto
         iV.contentMode = .scaleAspectFit
     }
     
