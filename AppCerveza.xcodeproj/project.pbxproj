@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A0375282792369600A4FE96 /* ProgramaCompleto.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ProgramaCompleto.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8A0E7DC7279216090028CE0E /* AddBeerMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerMakerView.swift; sourceTree = "<group>"; };
 		8A0E7DC9279216300028CE0E /* VistaNuevoFabricante.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaNuevoFabricante.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8A32F4C127906280002111E0 /* VistaCervezas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaCervezas.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -104,6 +105,7 @@
 				8A32F4C127906280002111E0 /* VistaCervezas.playground */,
 				8A32F4C62790EC02002111E0 /* VistaIndividualCerveza.playground */,
 				8A0E7DC9279216300028CE0E /* VistaNuevoFabricante.playground */,
+				8A0375282792369600A4FE96 /* ProgramaCompleto.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";

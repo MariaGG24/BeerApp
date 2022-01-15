@@ -82,6 +82,16 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         bv.bmv = self
         bv.pais = indexPath.section
         bv.fila = indexPath.row
+        
+        if(indexPath.section == 0)
+        {
+            bv.coleccionFabricantes = fabricantesNacionales
+        }
+        else
+        {
+            bv.coleccionFabricantes = fabricantesExtranjeros
+        }
+        
         present(bv, animated: true, completion: nil)
     }
     
@@ -149,7 +159,5 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func botonEliminar(_ sender : UIButton) {
-//        etiqueta.text = "Has pulsado el botón de Eliminar Fabricante"
     }
 }
-

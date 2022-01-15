@@ -16,7 +16,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var constraints = [NSLayoutConstraint]()
     var botonAtras = UIButton()
     var etiqueta = UILabel()
-    var nombreFab = ""
+    var coleccionFabricantes = [Fabricante]()
     var pais = 0
     var fila = 0
     
