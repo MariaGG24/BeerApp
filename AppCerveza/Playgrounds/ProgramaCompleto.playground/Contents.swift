@@ -408,6 +408,9 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //VARIABLES DE PRUEBA
     var tiposCerveza = [String]()
+    var cervezasOrdenadas = [Cerveza]()
+    var fabricante = Fabricante()
+    var filasSeccion = [Int]()
     
     var fila = 0
     
@@ -441,12 +444,26 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        //return 2
         return tiposCerveza.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        //return 4
+        /*var j = 0
+        for i in 0..<cervezasOrdenadas.count
+        {
+            if tiposCerveza[section] == cervezasOrdenadas[i].tipo
+            {
+                j = j + 1
+            }
+            else
+            {
+                break
+            }
+            
+        }
+        return j*/
+        return filasSeccion[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -456,21 +473,26 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
         cell?.contentView.layer.cornerRadius = 16
         
         cell?.textLabel?.textAlignment = .center
-        cell?.textLabel?.text = "\(indexPath.row)"
+        //cell?.textLabel?.text = "\(indexPath.row)"
+        /*for var i in 0..<cervezasOrdenadas.count
+        {
+            while seccion == indexPath.section
+            {
+                cell?.textLabel?.text = cervezasOrdenadas[i].nombre
+                i = i + 1
+            }
+            if seccion != indexPath.section
+            {
+                seccion = indexPath.section
+            }
+        }*/
+        cell?.textLabel?.text = cervezasOrdenadas[indexPath.row].nombre
         
         return cell!
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        /*if section == 0
-        {
-            return "Tipo 1"
-        }
-        else
-        {
-            return "Tipo 2"
-        }*/
-        return tiposCerveza[section]
+       return tiposCerveza[section]
     }
     
     func prepararBotones() {
@@ -497,13 +519,14 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
         constraints.append(tv.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
         constraints.append(tv.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20))
         
-        constraints.append(botonAtras.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
+        constraints.append(botonAtras.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 5))
         constraints.append(botonAtras.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
         constraints.append(botonAtras.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
     }
     
     func prepararInformacionFabricante() {
-        let fabricante = coleccionFabricantes[fila]
+        
+        fabricante = coleccionFabricantes[fila]
         var flag = Bool()
          
         for i in 0..<fabricante.cervezas!.count
@@ -520,8 +543,23 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
             if flag == false
             {
                 tiposCerveza.append(fabricante.cervezas![i].tipo)
+                ordenarCervezas(fabricante.cervezas![i].tipo)
             }
         }
+        //calcularFilasSeccion()
+    }
+    
+    func ordenarCervezas(_ tipo : String) {
+        var cont = 0
+        for i in 0..<fabricante.cervezas!.count
+        {
+            if fabricante.cervezas![i].tipo == tipo
+            {
+                cervezasOrdenadas.append(fabricante.cervezas![i])
+                cont = cont + 1
+            }
+        }
+        filasSeccion.append(cont)
     }
     
     @objc func atras(_ sender : UIButton){
