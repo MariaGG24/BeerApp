@@ -1,6 +1,7 @@
 //THIS IS THE MASTER BRANCH
 import UIKit
 import PlaygroundSupport
+import Foundation
 
 class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -416,7 +417,7 @@ class VistaNuevoFabricante : UIViewController {
         constraints.append(etiqueta.topAnchor.constraint(equalTo: view.topAnchor, constant: 10))
         constraints.append(etiqueta.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 108))
         constraints.append(etiqueta.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -108))
-//
+
         constraints.append(et.topAnchor.constraint(equalTo: etiqueta.bottomAnchor, constant: 90))
         constraints.append(et.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50))
         constraints.append(et2.topAnchor.constraint(equalTo: et.bottomAnchor, constant: 30))

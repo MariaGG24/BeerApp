@@ -9,17 +9,42 @@ import Foundation
 import UIKit
 
 //public class Cerveza : NSObject, NSCoding, NSSecureCoding, Encodable {
-public class Cerveza {
+public class Cerveza : Codable {
     
 //    public static var supportsSecureCoding: Bool = true
     
-    var nombre = String()
-    var tipo = String()
-    var graduacion = Float()
-    var aporteCalorico = Float()
-    var logo = UIImage()
+    var nombre : String
+    var tipo : String
+    var graduacion : Float
+    var aporteCalorico : Float
+    var logo : UIImage
     
-    /*
+    enum CodingKeys : String, CodingKey {
+        case nombre
+        case tipo
+        case graduacion
+        case aporteCalorico
+        case logo
+    }
+    
+    required public init(from decoder:Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        nombre = try container.decode(String.self, forKey: .nombre)
+        tipo = try container.decode(String.self, forKey: .tipo)
+        graduacion = try container.decode(Float.self, forKey: .graduacion)
+        aporteCalorico = try container.decode(Float.self, forKey: .aporteCalorico)
+        logo = try container.decode(UIImage.self, forKey: .logo)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(nombre, forKey: .nombre)
+        try container.encode(tipo, forKey: .tipo)
+        try container.encode(graduacion, forKey: .graduacion)
+        try container.encode(aporteCalorico, forKey: .aporteCalorico)
+        try container.encode(logo, forKey: .logo)
+    }
+   /*
     override init() {
         self.nombre = "cerveza"
         self.tipo = "Negra"
