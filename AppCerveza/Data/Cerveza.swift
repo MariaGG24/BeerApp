@@ -11,13 +11,13 @@ import UIKit
 //public class Cerveza : NSObject, NSCoding, NSSecureCoding, Encodable {
 public class Cerveza {
     
-    public static var supportsSecureCoding: Bool = true
+//    public static var supportsSecureCoding: Bool = true
     
-    var nombre:String
-    var tipo:String
-    var graduacion:Float
-    var aporteCalorico:Float
-    var logo:UIImage?
+    var nombre = String()
+    var tipo = String()
+    var graduacion = Float()
+    var aporteCalorico = Float()
+    var logo = UIImage()
     
     /*
     override init() {

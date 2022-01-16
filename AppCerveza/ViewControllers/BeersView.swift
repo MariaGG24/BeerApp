@@ -17,7 +17,11 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var botonAtras = UIButton()
     var etiqueta = UILabel()
     var coleccionFabricantes = [Fabricante]()
-    var pais = 0
+    var tiposCerveza = [String]()
+    var cervezasOrdenadas = [Cerveza]()
+    var fabricante = Fabricante()
+    var filasSeccion = [Int]()
+    var i = 0
     var fila = 0
     
     override func loadView() {
@@ -28,7 +32,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         prepararTableView()
         prepararEtiqueta()
-        prepararBotones()
+        prepararBoton()
         prepararConstraints()
         
         view.addSubview(tv)
@@ -39,6 +43,9 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func prepararTableView() {
+        
+        prepararInformacionFabricante()
+        
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.delegate = self
         tv.dataSource = self
@@ -47,11 +54,11 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return tiposCerveza.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return filasSeccion[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,38 +68,36 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell?.contentView.layer.cornerRadius = 16
         
         cell?.textLabel?.textAlignment = .center
-        cell?.textLabel?.text = "\(indexPath.row)"
+        cell?.textLabel?.text = cervezasOrdenadas[i].nombre
+        i = i + 1
         
         return cell!
     }
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sbv = SingleBeerView()
         sbv.modalTransitionStyle = .flipHorizontal
-        sbv.modalPresentationStyle = .formSheet
+        sbv.modalPresentationStyle = .currentContext
         sbv.bv = self
+        sbv.cervezas = cervezasOrdenadas
+        sbv.tipos = tiposCerveza
+        sbv.seccion = indexPath.section
         sbv.fila = indexPath.row
+        sbv.filasSec = filasSeccion
         present(sbv, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0
-        {
-            return "Tipo 1"
-        }
-        else
-        {
-            return "Tipo 2"
-        }
+       return tiposCerveza[section]
     }
     
-    func prepararBotones() {
+    func prepararBoton() {
         botonAtras.translatesAutoresizingMaskIntoConstraints = false
-        botonAtras.contentHorizontalAlignment = .center
-        botonAtras.setTitle("   Atrás   ", for: .normal)
+        botonAtras.setTitle("Atrás", for: .normal)
         botonAtras.setTitleColor(.blue, for: .normal)
-        botonAtras.backgroundColor = .lightGray
+        botonAtras.contentHorizontalAlignment = .center
         botonAtras.layer.cornerRadius = 4
+        botonAtras.backgroundColor = .lightGray
         botonAtras.addTarget(self, action: #selector(BeersView.atras), for: .touchUpInside)
     }
     
@@ -116,6 +121,43 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         constraints.append(botonAtras.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
         constraints.append(botonAtras.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
         constraints.append(botonAtras.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+    }
+    
+    func prepararInformacionFabricante() {
+        
+        fabricante = coleccionFabricantes[fila]
+        var flag = Bool()
+         
+        for i in 0..<fabricante.cervezas!.count
+        {
+            flag = false
+            for j in 0..<tiposCerveza.count
+            {
+                if tiposCerveza[j] == fabricante.cervezas![i].tipo
+                {
+                    flag = true
+                    break
+                }
+            }
+            if flag == false
+            {
+                tiposCerveza.append(fabricante.cervezas![i].tipo)
+                ordenarCervezas(fabricante.cervezas![i].tipo)
+            }
+        }
+    }
+    
+    func ordenarCervezas(_ tipo : String) {
+        var cont = 0
+        for i in 0..<fabricante.cervezas!.count
+        {
+            if fabricante.cervezas![i].tipo == tipo
+            {
+                cervezasOrdenadas.append(fabricante.cervezas![i])
+                cont = cont + 1
+            }
+        }
+        filasSeccion.append(cont)
     }
     
     @objc func atras(_ sender : UIButton){

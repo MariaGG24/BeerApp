@@ -42,7 +42,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
     func prepararTableView() {
         prepararInformacionAMostrar()
         tv.translatesAutoresizingMaskIntoConstraints = false
-//        tv = UITableView(frame: UIScreen.main.bounds, style: .plain)
         tv.backgroundColor = .white
         tv.delegate = self
         tv.dataSource = self
@@ -66,15 +65,12 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "fabricante")
         
         cell?.contentView.backgroundColor = .systemBrown
         cell?.contentView.layer.cornerRadius = 16
         
         cell?.textLabel?.textAlignment = .center
-        //cell?.textLabel?.text = "\(indexPath.row)"
         if indexPath.section == 0
         {
             cell?.textLabel?.text = fabricantesNacionales[indexPath.row].nombre
@@ -93,7 +89,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
         vc.modalPresentationStyle = .currentContext
         vc.modalTransitionStyle = .flipHorizontal
         vc.vm = self
-        //vc.pais = indexPath.section
         vc.fila = indexPath.row
         
         if(indexPath.section == 0)
@@ -475,15 +470,11 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
     var botonAtras = UIButton()
     var etiqueta = UILabel()
     var coleccionFabricantes = [Fabricante]()
-    //var pais = 0
-    
-    //VARIABLES DE PRUEBA
     var tiposCerveza = [String]()
     var cervezasOrdenadas = [Cerveza]()
     var fabricante = Fabricante()
     var filasSeccion = [Int]()
     var i = 0
-    
     var fila = 0
     
     override func loadView() {
@@ -520,21 +511,6 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return 4
-        /*var j = 0
-        for i in 0..<cervezasOrdenadas.count
-        {
-            if tiposCerveza[section] == cervezasOrdenadas[i].tipo
-            {
-                j = j + 1
-            }
-            else
-            {
-                break
-            }
-            
-        }
-        return j*/
         return filasSeccion[section]
     }
     
@@ -545,20 +521,6 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
         cell?.contentView.layer.cornerRadius = 16
         
         cell?.textLabel?.textAlignment = .center
-        //cell?.textLabel?.text = "\(indexPath.row)"
-        /*for var i in 0..<cervezasOrdenadas.count
-        {
-            while seccion == indexPath.section
-            {
-                cell?.textLabel?.text = cervezasOrdenadas[i].nombre
-                i = i + 1
-            }
-            if seccion != indexPath.section
-            {
-                seccion = indexPath.section
-            }
-        }*/
-        //cell?.textLabel?.text = cervezasOrdenadas[indexPath.row].nombre
         cell?.textLabel?.text = cervezasOrdenadas[i].nombre
         i = i + 1
         
@@ -668,8 +630,6 @@ class VistaIndividualCerveza : UIViewController {
     var t = String()
     var tipo = UILabel()
     var iV = UIImageView()
-    
-    //VARIABLES DE PRUEBA
     var cervezas = [Cerveza]()
     var tipos = [String]()
     var seccion = Int()

@@ -15,16 +15,18 @@ class SingleBeerView : UIViewController {
     var constraints = [NSLayoutConstraint]()
     var etiqueta = UILabel()
     var botonAtras = UIButton()
-    var fila = 0
-    var nombreFabricante = ""
     var nombre = UILabel()
-    var grad = Float()
     var graduacion = UILabel()
-    var apCalorias = Float()
     var aporteCalorico = UILabel()
     var t = String()
     var tipo = UILabel()
     var iV = UIImageView()
+    var cervezas = [Cerveza]()
+    var tipos = [String]()
+    var seccion = Int()
+    var fila = Int()
+    var filasSec = [Int]()
+    var cervezaElegida = Cerveza()
     
     override func loadView() {
         super.loadView()
@@ -32,9 +34,9 @@ class SingleBeerView : UIViewController {
         view.frame = CGRect(x: 0, y: 0, width: 512, height: 512)
         view.backgroundColor = .white
         
+        prepararElementosInformacion()
         prepararEtiqueta()
         prepararBoton()
-        prepararElementosInformacion()
         prepararConstraints()
         
         view.addSubview(etiqueta)
@@ -48,9 +50,10 @@ class SingleBeerView : UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
+    
     func prepararEtiqueta() {
         etiqueta.translatesAutoresizingMaskIntoConstraints = false
-        etiqueta.text = "Nombre de la cerveza"
+        etiqueta.text = "Información sobre " + cervezaElegida.nombre
         etiqueta.textColor = .systemBrown
         etiqueta.textAlignment = .center
         etiqueta.font = UIFont(name: "Chalkduster", size: 20.0)
@@ -58,7 +61,7 @@ class SingleBeerView : UIViewController {
     
     func prepararBoton() {
         botonAtras.translatesAutoresizingMaskIntoConstraints = false
-        botonAtras.setTitle("   Atrás   ", for: .normal)
+        botonAtras.setTitle("Atrás", for: .normal)
         botonAtras.setTitleColor(.blue, for: .normal)
         botonAtras.contentHorizontalAlignment = .center
         botonAtras.layer.cornerRadius = 4
@@ -67,36 +70,44 @@ class SingleBeerView : UIViewController {
     }
     
     func prepararElementosInformacion() {
+        
+        var pos = 0
+        
+        while cervezas[pos].tipo != tipos[seccion]
+        {
+            pos = pos + 1
+        }
+        pos = pos + fila
+        cervezaElegida = cervezas[pos]
+        
         nombre.translatesAutoresizingMaskIntoConstraints = false
-        nombre.text = "Nombre de la Cerveza"
+        nombre.text = "Nombre de la Cerveza: " + cervezaElegida.nombre
         nombre.textAlignment = .center
         nombre.textColor = .systemBrown
         nombre.font = UIFont(name: "Chalkduster", size: 15.0)
         
-        grad = 5.4
         graduacion.translatesAutoresizingMaskIntoConstraints = false
-        graduacion.text = "Graduación de la Cerveza: " + String(grad)
+        graduacion.text = "Graduación de la Cerveza: " + String(cervezaElegida.graduacion)
         graduacion.textAlignment = .center
         graduacion.textColor = .systemBrown
         graduacion.font = UIFont(name: "Chalkduster", size: 15.0)
         
-        apCalorias = 43.0
         aporteCalorico.translatesAutoresizingMaskIntoConstraints = false
-        aporteCalorico.text = "Aporte calórico de la Cerveza: " + String(apCalorias)
+        aporteCalorico.text = "Aporte calórico de la Cerveza: " + String(cervezaElegida.aporteCalorico)
         aporteCalorico.textAlignment = .center
         aporteCalorico.textColor = .systemBrown
         aporteCalorico.font = UIFont(name: "Chalkduster", size: 15.0)
         
-        t = "IPA"
         tipo.translatesAutoresizingMaskIntoConstraints = false
-        tipo.text = "Tipo de la Cerveza: " + t
+        tipo.text = "Tipo de la Cerveza: " + cervezaElegida.tipo
         tipo.textAlignment = .center
         tipo.textColor = .systemBrown
         tipo.font = UIFont(name: "Chalkduster", size: 15.0)
         
         iV.translatesAutoresizingMaskIntoConstraints = false
         iV.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        iV.image = UIImage(named: "cerveza")
+        iV.image = UIImage(named: "cerveza.jpg") //Añadir aquí nombre de la foto que coincida con el de la cerveza para la foto
+        iV.contentMode = .scaleAspectFit
     }
     
     func prepararConstraints() {
