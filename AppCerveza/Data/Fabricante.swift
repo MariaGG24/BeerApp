@@ -12,9 +12,34 @@ public class Fabricante : Codable {
     
     var nombre : String
     var pais : String
+    var creacion : Int
     var cervezas : [Cerveza]
-    var logo : UIImage
+    var logo : Data
     
+    init (_ n : String, _ p : String, _ a : Int, _ c : [Cerveza], _ l : UIImage){
+        self.nombre = n
+        self.pais = p
+        self.creacion = a
+        self.cervezas = c
+        self.logo = l.pngData()!
+    }
+        
+    func getLogo() -> UIImage{
+        return UIImage(data: self.logo)!
+    }
+    
+    func setLogo(i:UIImage){
+        self.logo = i.pngData()!
+    }
+    
+//    init(_ nom : String, _ p : String, _ c : [Cerveza], _ l : UIImage){
+//        self.nombre = nom
+//        self.pais = p
+//        self.cervezas = c
+//        self.logo = l
+//    }
+    
+    /*
     enum CodingKeys : String, CodingKey {
         case nombre
         case pais
@@ -36,7 +61,7 @@ public class Fabricante : Codable {
         try container.encode(pais, forKey: .pais)
         try container.encode(cervezas, forKey: .cervezas)
         try container.encode(logo, forKey: .logo)
-    }
+    }*/
 }
 /*
 var description:String {

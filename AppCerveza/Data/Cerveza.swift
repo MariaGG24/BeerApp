@@ -17,8 +17,32 @@ public class Cerveza : Codable {
     var tipo : String
     var graduacion : Float
     var aporteCalorico : Float
-    var logo : UIImage
+    var logo : Data
     
+    init (_ n : String, _ t : String, _ g : Float, _ ac : Float, _ l : UIImage){
+        self.nombre = n
+        self.tipo = t
+        self.graduacion = g
+        self.aporteCalorico = ac
+        self.logo = l.pngData()!
+    }
+        
+    func getLogo() -> UIImage{
+        return UIImage(data: self.logo)!
+    }
+    
+    func setLogo(_ i : UIImage){
+        self.logo = i.pngData()!
+    }
+    
+//    init (_ nom : String, _ t : String, _ g : Float, _ ac : Float, _ l : UIImage) {
+//        self.nombre = nom
+//        self.tipo = t
+//        self.graduacion = g
+//        self.aporteCalorico = ac
+//        self.logo = l
+//    }
+    /*
     enum CodingKeys : String, CodingKey {
         case nombre
         case tipo
@@ -43,7 +67,7 @@ public class Cerveza : Codable {
         try container.encode(graduacion, forKey: .graduacion)
         try container.encode(aporteCalorico, forKey: .aporteCalorico)
         try container.encode(logo, forKey: .logo)
-    }
+    }*/
    /*
     override init() {
         self.nombre = "cerveza"

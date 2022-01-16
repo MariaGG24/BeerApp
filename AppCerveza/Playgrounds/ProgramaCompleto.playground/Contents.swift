@@ -448,6 +448,7 @@ class VistaNuevoFabricante : UIViewController {
             fabricanteNuevo.logo = nil
             fabricanteNuevo.cervezas = nil
             vm?.fabricantesNacionales.append(fabricanteNuevo) //Se llama a cargarDatos o algo así??
+            vm?.tv.reloadData()
             dismiss(animated: true, completion: nil)
         }
         else
@@ -458,6 +459,7 @@ class VistaNuevoFabricante : UIViewController {
             fabricanteNuevo.logo = nil
             fabricanteNuevo.cervezas = nil
             vm?.fabricantesExtranjeros.append(fabricanteNuevo)
+            vm?.tv.reloadData()
             dismiss(animated: true, completion: nil)
         }
     }
