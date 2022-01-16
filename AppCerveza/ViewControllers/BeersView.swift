@@ -128,12 +128,12 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         fabricante = coleccionFabricantes[fila]
         var flag = Bool()
          
-        for i in 0..<fabricante.cervezas!.count
+        for i in 0..<fabricante.cervezas.count
         {
             flag = false
             for j in 0..<tiposCerveza.count
             {
-                if tiposCerveza[j] == fabricante.cervezas![i].tipo
+                if tiposCerveza[j] == fabricante.cervezas[i].tipo
                 {
                     flag = true
                     break
@@ -141,19 +141,19 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
             if flag == false
             {
-                tiposCerveza.append(fabricante.cervezas![i].tipo)
-                ordenarCervezas(fabricante.cervezas![i].tipo)
+                tiposCerveza.append(fabricante.cervezas[i].tipo)
+                ordenarCervezas(fabricante.cervezas[i].tipo)
             }
         }
     }
     
     func ordenarCervezas(_ tipo : String) {
         var cont = 0
-        for i in 0..<fabricante.cervezas!.count
+        for i in 0..<fabricante.cervezas.count
         {
-            if fabricante.cervezas![i].tipo == tipo
+            if fabricante.cervezas[i].tipo == tipo
             {
-                cervezasOrdenadas.append(fabricante.cervezas![i])
+                cervezasOrdenadas.append(fabricante.cervezas[i])
                 cont = cont + 1
             }
         }

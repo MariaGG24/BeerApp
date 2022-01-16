@@ -31,7 +31,7 @@ public class Fabricante : Codable {
         self.cervezas = c
         self.logo = l.pngData()!
     }
-        
+    
     func getLogo() -> UIImage{
         return UIImage(data: self.logo)!
     }
