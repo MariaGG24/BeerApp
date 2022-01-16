@@ -15,7 +15,7 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
     let nombres = ["Mahou", "Estrella Galicia", "Heineken", "Leffe", "Estrella Damm", "Bavaria"]
     let paises = ["España", "España", "Países Bajos", "Bélgica", "España", "Colombia"]
     var cerveza = Cerveza()
-    var i = 0
+//    var i = 0
     
     var fabricantes = [Fabricante]()
     public var fabricantesNacionales = [Fabricante]()
@@ -79,7 +79,7 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
         else
         {
             cell?.textLabel?.text = fabricantesExtranjeros[indexPath.row].nombre
-            i = i+1
+//            i = i+1
         }
         
         return cell!
@@ -167,7 +167,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             let fabricante = Fabricante()
             fabricante.nombre = nombres[i]
             fabricante.pais = paises[i]
-            fabricante.logo = nil
             fabricante.cervezas = insertarCervezas(fabricante.nombre)
             
             if fabricante.pais == "España"
@@ -191,7 +190,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c.aporteCalorico = 67.0
             c.graduacion = 7.5
             c.tipo = "Doppelock"
-            c.logo = nil
             cerv.append(c)
             
             let c1 = Cerveza()
@@ -199,7 +197,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c1.aporteCalorico = 29.0
             c1.graduacion = 0.9
             c1.tipo = "Radler"
-            c1.logo = nil
             cerv.append(c1)
         }
         else if fab == "Estrella Galicia"
@@ -209,7 +206,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c.aporteCalorico = 47.0
             c.graduacion = 5.5
             c.tipo = "Lager Especial"
-            c.logo = nil
             cerv.append(c)
             
             let c1 = Cerveza()
@@ -217,7 +213,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c1.aporteCalorico = 46.0
             c1.graduacion = 5.3
             c1.tipo = "WITBIER"
-            c1.logo = nil
             cerv.append(c1)
             
             let c2 = Cerveza()
@@ -225,7 +220,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c2.aporteCalorico = 24.0
             c2.graduacion = 0.0
             c2.tipo = "Sin Alcohol"
-            c2.logo = nil
             cerv.append(c2)
         }
         else if fab == "Heineken"
@@ -235,7 +229,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c.aporteCalorico = 42.0
             c.graduacion = 5.0
             c.tipo = "Lager Pilsen Premium"
-            c.logo = nil
             cerv.append(c)
             
             let c1 = Cerveza()
@@ -243,7 +236,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c1.aporteCalorico = 21.0
             c1.graduacion = 0.0
             c1.tipo = "Sin Alcohol"
-            c1.logo = nil
             cerv.append(c1)
         }
         else if fab == "Leffe"
@@ -253,7 +245,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c.aporteCalorico = 42.0
             c.graduacion = 6.6
             c.tipo = "Pale Ale"
-            c.logo = nil
             cerv.append(c)
             
             let c1 = Cerveza()
@@ -261,7 +252,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c1.aporteCalorico = 55.0
             c1.graduacion = 5.0
             c1.tipo = "Lambic"
-            c1.logo = nil
             cerv.append(c1)
         }
         else if fab == "Estrella Damm"
@@ -271,7 +261,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c.aporteCalorico = 66.0
             c.graduacion = 7.2
             c.tipo = "Märzenbier"
-            c.logo = nil
             cerv.append(c)
             
             let c1 = Cerveza()
@@ -279,7 +268,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c1.aporteCalorico = 75.0
             c1.graduacion = 11.0
             c1.tipo = "Imperial Stout"
-            c1.logo = nil
             cerv.append(c1)
             
             let c2 = Cerveza()
@@ -287,7 +275,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c2.aporteCalorico = 45.0
             c2.graduacion = 5.0
             c2.tipo = "Lager"
-            c2.logo = nil
             cerv.append(c2)
         }
         else
@@ -297,7 +284,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c.aporteCalorico = 42.0
             c.graduacion = 4.5
             c.tipo = "Lager"
-            c.logo = nil
             cerv.append(c)
             
             let c1 = Cerveza()
@@ -305,7 +291,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c1.aporteCalorico = 43.0
             c1.graduacion = 5.0
             c1.tipo = "Lager"
-            c1.logo = nil
             cerv.append(c1)
             
             let c2 = Cerveza()
@@ -313,7 +298,6 @@ class VistasMarcas : UIViewController, UITableViewDelegate, UITableViewDataSourc
             c2.aporteCalorico = 142.0
             c2.graduacion = 4.0
             c2.tipo = "Lager"
-            c2.logo = nil
             cerv.append(c2)
         }
         return cerv
@@ -342,8 +326,10 @@ class VistaNuevoFabricante : UIViewController {
 //    var fabricanteNuevo = Fabricante()
     var et = UILabel()
     var et2 = UILabel()
+    var et3 = UILabel()
     var campoNombre = UITextField()
     var campoPais = UITextField()
+    var campoAno = UITextField()
     
     override func loadView() {
         super.loadView()
@@ -359,8 +345,10 @@ class VistaNuevoFabricante : UIViewController {
         view.addSubview(etiqueta)
         view.addSubview(et)
         view.addSubview(et2)
+        view.addSubview(et3)
         view.addSubview(campoPais)
         view.addSubview(campoNombre)
+        view.addSubview(campoAno)
         view.addSubview(botonHecho)
         
         NSLayoutConstraint.activate(constraints)
@@ -385,7 +373,6 @@ class VistaNuevoFabricante : UIViewController {
     }
     
     func prepararElementosAdicion() {
-        //Poner aquí etiquetas con información a añadir
         et.translatesAutoresizingMaskIntoConstraints = false
         et.text = "Introduzca el nombre del nuevo fabricante: "
         et.font = UIFont(name: "Chalkduster", size: 10.0)
@@ -397,6 +384,12 @@ class VistaNuevoFabricante : UIViewController {
         et2.font = UIFont(name: "Chalkduster", size: 10.0)
         et2.textColor = .systemBrown
         et2.textAlignment = .left
+        
+        et3.translatesAutoresizingMaskIntoConstraints = false
+        et3.text = "Introduzca el año de fundación del nuevo fabricante: "
+        et3.font = UIFont(name: "Chalkduster", size: 10.0)
+        et3.textColor = .systemBrown
+        et3.textAlignment = .left
         
         campoNombre.translatesAutoresizingMaskIntoConstraints = false
         campoNombre.frame = CGRect(x: 0, y: 0, width: 100, height: 60)
@@ -411,6 +404,13 @@ class VistaNuevoFabricante : UIViewController {
         campoPais.borderStyle = .roundedRect
         campoPais.layer.borderWidth = 2
         campoPais.placeholder = "Sin país"
+        
+        campoAno.translatesAutoresizingMaskIntoConstraints = false
+        campoAno.frame = CGRect(x: 0, y: 0, width: 100, height: 60)
+        campoAno.textAlignment = .right
+        campoAno.borderStyle = .roundedRect
+        campoAno.layer.borderWidth = 2
+        campoAno.placeholder = "1900"
     }
     
     func prepararConstraints() {
@@ -422,6 +422,8 @@ class VistaNuevoFabricante : UIViewController {
         constraints.append(et.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50))
         constraints.append(et2.topAnchor.constraint(equalTo: et.bottomAnchor, constant: 30))
         constraints.append(et2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50))
+        constraints.append(et3.topAnchor.constraint(equalTo: et2.bottomAnchor, constant: 30))
+        constraints.append(et3.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50))
         
         constraints.append(campoNombre.centerYAnchor.constraint(equalTo: et.centerYAnchor))
         constraints.append(campoNombre.leadingAnchor.constraint(equalTo: et.trailingAnchor, constant: 20))
@@ -434,6 +436,12 @@ class VistaNuevoFabricante : UIViewController {
         constraints.append(campoPais.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50))
         constraints.append(campoPais.widthAnchor.constraint(equalTo: campoNombre.widthAnchor))
         
+        constraints.append(campoAno.centerYAnchor.constraint(equalTo: et3.centerYAnchor))
+        constraints.append(campoAno.leadingAnchor.constraint(equalTo: et3.trailingAnchor, constant: 20))
+        constraints.append(campoAno.topAnchor.constraint(equalTo: campoPais.bottomAnchor, constant: 30))
+        constraints.append(campoAno.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50))
+        constraints.append(campoAno.widthAnchor.constraint(equalTo: campoPais.widthAnchor))
+        
         constraints.append(botonHecho.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
         constraints.append(botonHecho.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
     }
@@ -445,8 +453,7 @@ class VistaNuevoFabricante : UIViewController {
             let fabricanteNuevo = Fabricante()
             fabricanteNuevo.nombre = campoNombre.text ?? "Sin nombre"
             fabricanteNuevo.pais = campoPais.text ?? "Sin país"
-            fabricanteNuevo.logo = nil
-            fabricanteNuevo.cervezas = nil
+            fabricanteNuevo.creacion = campoAno.text ?? "1900"
             vm?.fabricantesNacionales.append(fabricanteNuevo) //Se llama a cargarDatos o algo así??
             vm?.tv.reloadData()
             dismiss(animated: true, completion: nil)
@@ -456,8 +463,7 @@ class VistaNuevoFabricante : UIViewController {
             let fabricanteNuevo = Fabricante()
             fabricanteNuevo.nombre = campoNombre.text ?? "Sin nombre"
             fabricanteNuevo.pais = campoPais.text ?? "Sin país"
-            fabricanteNuevo.logo = nil
-            fabricanteNuevo.cervezas = nil
+            fabricanteNuevo.creacion = campoAno.text ?? "1900"
             vm?.fabricantesExtranjeros.append(fabricanteNuevo)
             vm?.tv.reloadData()
             dismiss(animated: true, completion: nil)
@@ -480,6 +486,8 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
     var i = 0
     var fila = 0
     
+//    var orden = UIPickerView()
+    
     override func loadView() {
         super.loadView()
         
@@ -489,6 +497,7 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
         prepararTableView()
         prepararEtiqueta()
         prepararBoton()
+//        prepararPickerView()
         prepararConstraints()
         
         view.addSubview(tv)
@@ -564,6 +573,13 @@ class VistaCervezas : UIViewController, UITableViewDelegate, UITableViewDataSour
         etiqueta.text = "Listado de Cervezas de " //Añadir nombre de la marca
         etiqueta.font = UIFont(name: "Chalkduster", size: 20.0)
     }
+    
+//    func prepararPickerView() {
+//        orden.translatesAutoresizingMaskIntoConstraints = false
+//        orden.dataSource = self
+//        orden.delegate = self
+//        orden.numberOfComponents = 5
+//    }
     
     func prepararConstraints() {
         constraints.append(etiqueta.topAnchor.constraint(equalTo: view.topAnchor, constant: 10))

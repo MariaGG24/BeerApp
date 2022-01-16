@@ -27,7 +27,6 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func loadView() {
         super.loadView()
         
-        view.frame = CGRect(x: 0, y: 0, width: 512, height: 512)
         view.backgroundColor = .white
         
         prepararTableView()

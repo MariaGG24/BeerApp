@@ -14,7 +14,8 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     var etiqueta = UILabel()
     var tv = UITableView()
     var botonAdd = UIButton()
-    var botonDelete = UIButton()
+    
+//    var botonDelete = UIButton()
     var constraints = [NSLayoutConstraint]()
     public var fabricantesNacionales = [Fabricante]()
     public var fabricantesExtranjeros = [Fabricante]()
@@ -32,7 +33,7 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.addSubview(tv)
         view.addSubview(etiqueta)
         view.addSubview(botonAdd)
-        view.addSubview(botonDelete)
+//        view.addSubview(botonDelete)
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -50,7 +51,6 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return 4
         if section == 0
         {
             return fabricantesNacionales.count
@@ -62,15 +62,21 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "fabricante")
         
         cell?.contentView.backgroundColor = .systemBrown
         cell?.contentView.layer.cornerRadius = 16
         
         cell?.textLabel?.textAlignment = .center
-        cell?.textLabel?.text = "\(indexPath.row)"
-        
-        
+        if indexPath.section == 0
+        {
+            cell?.textLabel?.text = fabricantesNacionales[indexPath.row].nombre
+        }
+        else
+        {
+            cell?.textLabel?.text = fabricantesExtranjeros[indexPath.row].nombre
+        }
         
         return cell!
     }
@@ -80,7 +86,6 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         bv.modalPresentationStyle = .formSheet
         bv.modalTransitionStyle = .flipHorizontal
         bv.bmv = self
-//        bv.pais = indexPath.section
         bv.fila = indexPath.row
         
         if(indexPath.section == 0)
@@ -116,13 +121,13 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         botonAdd.layer.cornerRadius = 4
         botonAdd.addTarget(self, action: #selector(BeerMakersView.botonAnadir), for: .touchUpInside)
         
-        botonDelete.translatesAutoresizingMaskIntoConstraints = false
-        botonDelete.backgroundColor = .lightGray
-        botonDelete.setTitle("  Eliminar Fabricante  ", for: .normal)
-        botonDelete.setTitleColor(.blue, for: .normal)
-        botonDelete.contentHorizontalAlignment = .center
-        botonDelete.layer.cornerRadius = 4
-        botonDelete.addTarget(self, action: #selector(BeerMakersView.botonEliminar), for: .touchUpInside)
+//        botonDelete.translatesAutoresizingMaskIntoConstraints = false
+//        botonDelete.backgroundColor = .lightGray
+//        botonDelete.setTitle("  Eliminar Fabricante  ", for: .normal)
+//        botonDelete.setTitleColor(.blue, for: .normal)
+//        botonDelete.contentHorizontalAlignment = .center
+//        botonDelete.layer.cornerRadius = 4
+//        botonDelete.addTarget(self, action: #selector(BeerMakersView.botonEliminar), for: .touchUpInside)
     }
     
     func prepararEtiqueta() {
@@ -146,18 +151,21 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         constraints.append(botonAdd.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20))
         constraints.append(botonAdd.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20))
         
-        constraints.append(botonDelete.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
-        constraints.append(botonDelete.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20))
-        constraints.append(botonDelete.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20))
-        constraints.append(botonDelete.centerYAnchor.constraint(equalTo: botonAdd.centerYAnchor))
-        constraints.append(botonDelete.widthAnchor.constraint(equalTo: botonAdd.widthAnchor))
-        constraints.append(botonDelete.heightAnchor.constraint(equalTo: botonAdd.heightAnchor))
+//        constraints.append(botonDelete.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
+//        constraints.append(botonDelete.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20))
+//        constraints.append(botonDelete.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20))
+//        constraints.append(botonDelete.centerYAnchor.constraint(equalTo: botonAdd.centerYAnchor))
+//        constraints.append(botonDelete.widthAnchor.constraint(equalTo: botonAdd.widthAnchor))
+//        constraints.append(botonDelete.heightAnchor.constraint(equalTo: botonAdd.heightAnchor))
     }
     
     @objc func botonAnadir(_ sender : UIButton) {
-        
+        let abmv = AddBeerMakerView()
+        abmv.modalTransitionStyle = .flipHorizontal
+        abmv.modalPresentationStyle = .formSheet
+        present(abmv, animated: true, completion: nil)
     }
     
-    @objc func botonEliminar(_ sender : UIButton) {
-    }
+//    @objc func botonEliminar(_ sender : UIButton) {
+//    }
 }
