@@ -80,7 +80,7 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         bv.modalPresentationStyle = .formSheet
         bv.modalTransitionStyle = .flipHorizontal
         bv.bmv = self
-        bv.pais = indexPath.section
+//        bv.pais = indexPath.section
         bv.fila = indexPath.row
         
         if(indexPath.section == 0)
