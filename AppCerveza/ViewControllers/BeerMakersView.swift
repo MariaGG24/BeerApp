@@ -16,8 +16,8 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     var botonAdd = UIButton()
     var botonDelete = UIButton()
     var constraints = [NSLayoutConstraint]()
-    var fabricantesNacionales = [Fabricante]()
-    var fabricantesExtranjeros = [Fabricante]()
+    public var fabricantesNacionales = [Fabricante]()
+    public var fabricantesExtranjeros = [Fabricante]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

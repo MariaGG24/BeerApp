@@ -16,8 +16,8 @@
 //    var i = 0
 //    
 //    var fabricantes = [Fabricante]()
-//    var fabricantesNacionales = [Fabricante]()
-//    var fabricantesExtranjeros = [Fabricante]()
+//    public var fabricantesNacionales = [Fabricante]()
+//    public var fabricantesExtranjeros = [Fabricante]()
 //    
 //    override func loadView() {
 //        super.loadView()

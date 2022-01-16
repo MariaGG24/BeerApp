@@ -17,6 +17,8 @@
 		8A692D2C276D496E00D64504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A692D2A276D496E00D64504 /* Main.storyboard */; };
 		8A692D2E276D497000D64504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A692D2D276D497000D64504 /* Assets.xcassets */; };
 		8A692D31276D497000D64504 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A692D2F276D497000D64504 /* LaunchScreen.storyboard */; };
+		8AD84BEC2793A85B00CC6CDE /* DataHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD84BEB2793A85B00CC6CDE /* DataHandlers.swift */; };
+		8AD84BEE2793A8EA00CC6CDE /* RGBMacDirUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD84BED2793A8EA00CC6CDE /* RGBMacDirUtils.swift */; };
 		8AF8EA97277110AC00E531B1 /* BeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8EA96277110AC00E531B1 /* BeersView.swift */; };
 		8AF8EA99277110EB00E531B1 /* SingleBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8EA98277110EA00E531B1 /* SingleBeerView.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +41,8 @@
 		8A692D30276D497000D64504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A692D32276D497000D64504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A692D3A276D53DD00D64504 /* VistaMarcas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaMarcas.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8AD84BEB2793A85B00CC6CDE /* DataHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlers.swift; sourceTree = "<group>"; };
+		8AD84BED2793A8EA00CC6CDE /* RGBMacDirUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBMacDirUtils.swift; sourceTree = "<group>"; };
 		8AF8EA96277110AC00E531B1 /* BeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersView.swift; sourceTree = "<group>"; };
 		8AF8EA98277110EA00E531B1 /* SingleBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBeerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +77,7 @@
 		8A692D23276D496E00D64504 /* AppCerveza */ = {
 			isa = PBXGroup;
 			children = (
+				8AD84BEA2793A84000CC6CDE /* Helpers */,
 				8A692D3C276D551900D64504 /* Data */,
 				8A692D3B276D551100D64504 /* ViewControllers */,
 				8A692D39276D4B7B00D64504 /* Playgrounds */,
@@ -128,6 +133,15 @@
 				8A32F4CE2790FB84002111E0 /* Fabricante.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		8AD84BEA2793A84000CC6CDE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8AD84BEB2793A85B00CC6CDE /* DataHandlers.swift */,
+				8AD84BED2793A8EA00CC6CDE /* RGBMacDirUtils.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		8AF8EA9A2771173200E531B1 /* Fabricantes */ = {
@@ -219,7 +233,9 @@
 				8AF8EA97277110AC00E531B1 /* BeersView.swift in Sources */,
 				8A692D29276D496E00D64504 /* BeerMakersView.swift in Sources */,
 				8AF8EA99277110EB00E531B1 /* SingleBeerView.swift in Sources */,
+				8AD84BEC2793A85B00CC6CDE /* DataHandlers.swift in Sources */,
 				8A0E7DC8279216090028CE0E /* AddBeerMakerView.swift in Sources */,
+				8AD84BEE2793A8EA00CC6CDE /* RGBMacDirUtils.swift in Sources */,
 				8A692D25276D496E00D64504 /* AppDelegate.swift in Sources */,
 				8A32F4C32790E5F9002111E0 /* Cerveza.swift in Sources */,
 				8A32F4CF2790FB84002111E0 /* Fabricante.swift in Sources */,

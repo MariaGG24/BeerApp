@@ -8,15 +8,19 @@
 import Foundation
 import UIKit
 
-public class Fabricante : NSObject, NSCoding, NSSecureCoding {
+//public class Fabricante : NSObject, NSCoding, NSSecureCoding, Encodable, Decodable {
+public class Fabricante : Encodable, Decodable {
     
-    public static var supportsSecureCoding: Bool = true
+//    public static var supportsSecureCoding: Bool = true
     
     var nombre = ""
     var pais = ""
     var cervezas:[Cerveza]?
     var logo:UIImage?
     
+    var description:String {
+    return "{ nombre: \(nombre), pais: \(pais) }"
+    /*
     override init() {
         self.nombre = "fabricante"
         self.pais = "España"
@@ -36,5 +40,5 @@ public class Fabricante : NSObject, NSCoding, NSSecureCoding {
         self.pais = aDecoder.decodeObject(forKey: "pais") as! String
         self.cervezas = aDecoder.decodeObject(forKey: "graduacion") as! [Cerveza]?
         self.logo = aDecoder.decodeObject(forKey: "logo") as! UIImage?
-    }
+    }*/
 }

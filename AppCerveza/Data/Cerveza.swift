@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-public class Cerveza : NSObject, NSCoding, NSSecureCoding {
+//public class Cerveza : NSObject, NSCoding, NSSecureCoding, Encodable {
+public class Cerveza {
     
     public static var supportsSecureCoding: Bool = true
     
@@ -18,6 +19,7 @@ public class Cerveza : NSObject, NSCoding, NSSecureCoding {
     var aporteCalorico:Float
     var logo:UIImage?
     
+    /*
     override init() {
         self.nombre = "cerveza"
         self.tipo = "Negra"
@@ -40,5 +42,5 @@ public class Cerveza : NSObject, NSCoding, NSSecureCoding {
         self.graduacion = aDecoder.decodeObject(forKey: "graduacion") as! Float
         self.aporteCalorico = aDecoder.decodeObject(forKey: "aporteCalorico") as! Float
         self.logo = aDecoder.decodeObject(forKey: "logo") as! UIImage?
-    }
+    }*/
 }
