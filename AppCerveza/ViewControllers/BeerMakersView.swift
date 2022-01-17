@@ -14,8 +14,6 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     var etiqueta = UILabel()
     var tv = UITableView()
     var botonAdd = UIButton()
-    
-//    var botonDelete = UIButton()
     var constraints = [NSLayoutConstraint]()
     public var fabricantesNacionales = [Fabricante]()
     public var fabricantesExtranjeros = [Fabricante]()
@@ -33,7 +31,6 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.addSubview(tv)
         view.addSubview(etiqueta)
         view.addSubview(botonAdd)
-//        view.addSubview(botonDelete)
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -69,14 +66,17 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell?.contentView.layer.cornerRadius = 16
         
         cell?.textLabel?.textAlignment = .center
-        cell?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(BeerMakersView.eliminarFabricante)))
+        
+//        cell?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(BeerMakersView.eliminarFabricante)))
         if indexPath.section == 0
         {
             cell?.textLabel?.text = fabricantesNacionales[indexPath.row].nombre
+            cell?.imageView?.image = UIImage(named: fabricantesNacionales[indexPath.row].nombre + ".jpg")
         }
         else
         {
             cell?.textLabel?.text = fabricantesExtranjeros[indexPath.row].nombre
+            cell?.imageView?.image = UIImage(named: fabricantesExtranjeros[indexPath.row].nombre + ".jpg")
         }
         
         return cell!
@@ -121,14 +121,6 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         botonAdd.contentHorizontalAlignment = .center
         botonAdd.layer.cornerRadius = 4
         botonAdd.addTarget(self, action: #selector(BeerMakersView.botonAnadir), for: .touchUpInside)
-        
-//        botonDelete.translatesAutoresizingMaskIntoConstraints = false
-//        botonDelete.backgroundColor = .lightGray
-//        botonDelete.setTitle("  Eliminar Fabricante  ", for: .normal)
-//        botonDelete.setTitleColor(.blue, for: .normal)
-//        botonDelete.contentHorizontalAlignment = .center
-//        botonDelete.layer.cornerRadius = 4
-//        botonDelete.addTarget(self, action: #selector(BeerMakersView.botonEliminar), for: .touchUpInside)
     }
     
     func prepararEtiqueta() {
@@ -151,13 +143,6 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         constraints.append(botonAdd.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
         constraints.append(botonAdd.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20))
         constraints.append(botonAdd.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20))
-        
-//        constraints.append(botonDelete.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
-//        constraints.append(botonDelete.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20))
-//        constraints.append(botonDelete.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20))
-//        constraints.append(botonDelete.centerYAnchor.constraint(equalTo: botonAdd.centerYAnchor))
-//        constraints.append(botonDelete.widthAnchor.constraint(equalTo: botonAdd.widthAnchor))
-//        constraints.append(botonDelete.heightAnchor.constraint(equalTo: botonAdd.heightAnchor))
     }
     
     @objc func botonAnadir(_ sender : UIButton) {
@@ -170,9 +155,19 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    @objc func eliminarFabricante(_ sender : UILongPressGestureRecognizer) {
-        
-        let pos = sender.location(in: sender.view)
-        
-    }
+//    @objc func eliminarFabricante(_ sender : UILongPressGestureRecognizer){
+//        guard let direccion = sender.view as? IndexPath else { return }
+//        let seccion = direccion.section
+//
+//        if seccion == 0
+//        {
+//            fabricantesNacionales.remove(at: direccion.row)
+//            tv.reloadData()
+//        }
+//        else
+//        {
+//            fabricantesExtranjeros.remove(at: direccion.row)
+//            tv.reloadData()
+//        }
+//    }
 }

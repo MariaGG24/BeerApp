@@ -119,8 +119,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fabricante.nombre = nombres[i]
             fabricante.pais = paises[i]
             fabricante.cervezas = insertarCervezas(fabricante.nombre)
-//            let im = UIImage(named: fabricante.nombre)
-//            fabricante.setLogo(im)
+            let im = UIImage(named: fabricante.nombre + ".jpg")!
+            fabricante.setLogo(im)
             
             if fabricante.pais == "España"
             {

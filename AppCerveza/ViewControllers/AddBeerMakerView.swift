@@ -14,6 +14,7 @@ class AddBeerMakerView : UIViewController {
     var constraints = [NSLayoutConstraint]()
     var etiqueta = UILabel()
     var botonHecho = UIButton()
+    var botonAtras = UIButton()
     var et = UILabel()
     var et2 = UILabel()
     var et3 = UILabel()
@@ -40,6 +41,7 @@ class AddBeerMakerView : UIViewController {
         view.addSubview(campoNombre)
         view.addSubview(campoAno)
         view.addSubview(botonHecho)
+        view.addSubview(botonAtras)
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -60,6 +62,14 @@ class AddBeerMakerView : UIViewController {
         botonHecho.layer.cornerRadius = 4
         botonHecho.backgroundColor = .lightGray
         botonHecho.addTarget(self, action: #selector(AddBeerMakerView.hecho), for: .touchUpInside)
+        
+        botonAtras.translatesAutoresizingMaskIntoConstraints = false
+        botonAtras.setTitle("Atrás", for: .normal)
+        botonAtras.setTitleColor(.blue, for: .normal)
+        botonAtras.contentHorizontalAlignment = .center
+        botonAtras.layer.cornerRadius = 4
+        botonAtras.backgroundColor = .lightGray
+        botonAtras.addTarget(self, action: #selector(AddBeerMakerView.atras), for: .touchUpInside)
     }
     
     func prepararElementosAdicion() {
@@ -134,11 +144,19 @@ class AddBeerMakerView : UIViewController {
         
         constraints.append(botonHecho.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
         constraints.append(botonHecho.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        constraints.append(botonAtras.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
+        constraints.append(botonAtras.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20))
+        constraints.append(botonAtras.centerYAnchor.constraint(equalTo: botonHecho.centerYAnchor))
+        constraints.append(botonAtras.widthAnchor.constraint(equalTo: botonHecho.widthAnchor))
     }
     
     @objc func hecho(_ sender : UIButton){
         
-        if campoPais.text == "España" || campoPais.text == campoPais.placeholder
+        if campoPais.text == "" && campoNombre.text == "" && campoAno.text == ""
+        {
+            dismiss(animated: true, completion: nil)
+        }
+        else if campoPais.text == "España" || campoPais.text == campoPais.placeholder
         {
             let fabricanteNuevo = Fabricante()
             fabricanteNuevo.nombre = campoNombre.text ?? "Sin nombre"
@@ -158,5 +176,9 @@ class AddBeerMakerView : UIViewController {
             bmv?.tv.reloadData()
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @objc func atras (_ sender : UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }
