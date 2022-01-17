@@ -143,8 +143,8 @@ class AddBeerMakerView : UIViewController {
             let fabricanteNuevo = Fabricante()
             fabricanteNuevo.nombre = campoNombre.text ?? "Sin nombre"
             fabricanteNuevo.pais = campoPais.text ?? "Sin país"
-            fabricanteNuevo.creacion = campoAno.text ?? "1900"
-            bmv?.fabricantesNacionales.append(fabricanteNuevo) //Se llama a cargarDatos o algo así??
+            fabricanteNuevo.creacion = Int(campoAno.text ?? "1900") ?? 1900
+            bmv?.fabricantesNacionales.append(fabricanteNuevo)
             bmv?.tv.reloadData()
             dismiss(animated: true, completion: nil)
         }
@@ -153,7 +153,7 @@ class AddBeerMakerView : UIViewController {
             let fabricanteNuevo = Fabricante()
             fabricanteNuevo.nombre = campoNombre.text ?? "Sin nombre"
             fabricanteNuevo.pais = campoPais.text ?? "Sin país"
-            fabricanteNuevo.creacion = campoAno.text ?? "1900"
+            fabricanteNuevo.creacion = Int(campoAno.text ?? "1900") ?? 1900
             bmv?.fabricantesExtranjeros.append(fabricanteNuevo)
             bmv?.tv.reloadData()
             dismiss(animated: true, completion: nil)

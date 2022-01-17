@@ -163,8 +163,11 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         let abmv = AddBeerMakerView()
         abmv.modalTransitionStyle = .flipHorizontal
         abmv.modalPresentationStyle = .formSheet
+        abmv.bmv = self
         present(abmv, animated: true, completion: nil)
     }
+    
+    
     
 //    @objc func botonEliminar(_ sender : UIButton) {
 //    }
