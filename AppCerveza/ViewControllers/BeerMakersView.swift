@@ -69,6 +69,7 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell?.contentView.layer.cornerRadius = 16
         
         cell?.textLabel?.textAlignment = .center
+        cell?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(BeerMakersView.eliminarFabricante)))
         if indexPath.section == 0
         {
             cell?.textLabel?.text = fabricantesNacionales[indexPath.row].nombre
@@ -169,6 +170,9 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-//    @objc func botonEliminar(_ sender : UIButton) {
-//    }
+    @objc func eliminarFabricante(_ sender : UILongPressGestureRecognizer) {
+        
+        let pos = sender.location(in: sender.view)
+        
+    }
 }

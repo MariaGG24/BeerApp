@@ -10,6 +10,13 @@
 		8A0E7DC8279216090028CE0E /* AddBeerMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E7DC7279216090028CE0E /* AddBeerMakerView.swift */; };
 		8A32F4C32790E5F9002111E0 /* Cerveza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32F4C22790E5F9002111E0 /* Cerveza.swift */; };
 		8A32F4CC2790F930002111E0 /* cerveza.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A32F4CB2790F930002111E0 /* cerveza.png */; };
+		8A57505B27960129000CAD81 /* AddBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57505A27960129000CAD81 /* AddBeerView.swift */; };
+		8A57506227960852000CAD81 /* Leffe.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57505C27960852000CAD81 /* Leffe.png */; };
+		8A57506327960852000CAD81 /* Heineken.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57505D27960852000CAD81 /* Heineken.png */; };
+		8A57506427960852000CAD81 /* Bavaria.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57505E27960852000CAD81 /* Bavaria.png */; };
+		8A57506527960852000CAD81 /* Mahou.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57505F27960852000CAD81 /* Mahou.png */; };
+		8A57506627960852000CAD81 /* Estrella Galicia.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57506027960852000CAD81 /* Estrella Galicia.png */; };
+		8A57506727960852000CAD81 /* Estrella Damm.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57506127960852000CAD81 /* Estrella Damm.png */; };
 		8A692D25276D496E00D64504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A692D24276D496E00D64504 /* AppDelegate.swift */; };
 		8A692D27276D496E00D64504 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A692D26276D496E00D64504 /* SceneDelegate.swift */; };
 		8A692D29276D496E00D64504 /* BeerMakersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A692D28276D496E00D64504 /* BeerMakersView.swift */; };
@@ -30,6 +37,13 @@
 		8A32F4C22790E5F9002111E0 /* Cerveza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cerveza.swift; sourceTree = "<group>"; };
 		8A32F4C62790EC02002111E0 /* VistaIndividualCerveza.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = VistaIndividualCerveza.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8A32F4CB2790F930002111E0 /* cerveza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cerveza.png; sourceTree = "<group>"; };
+		8A57505A27960129000CAD81 /* AddBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerView.swift; sourceTree = "<group>"; };
+		8A57505C27960852000CAD81 /* Leffe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Leffe.png; sourceTree = "<group>"; };
+		8A57505D27960852000CAD81 /* Heineken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Heineken.png; sourceTree = "<group>"; };
+		8A57505E27960852000CAD81 /* Bavaria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bavaria.png; sourceTree = "<group>"; };
+		8A57505F27960852000CAD81 /* Mahou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mahou.png; sourceTree = "<group>"; };
+		8A57506027960852000CAD81 /* Estrella Galicia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Estrella Galicia.png"; sourceTree = "<group>"; };
+		8A57506127960852000CAD81 /* Estrella Damm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Estrella Damm.png"; sourceTree = "<group>"; };
 		8A692D21276D496E00D64504 /* AppCerveza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppCerveza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A692D24276D496E00D64504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A692D26276D496E00D64504 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +134,7 @@
 				8AF8EA96277110AC00E531B1 /* BeersView.swift */,
 				8AF8EA98277110EA00E531B1 /* SingleBeerView.swift */,
 				8A0E7DC7279216090028CE0E /* AddBeerMakerView.swift */,
+				8A57505A27960129000CAD81 /* AddBeerView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -144,6 +159,12 @@
 		8AF8EA9A2771173200E531B1 /* Fabricantes */ = {
 			isa = PBXGroup;
 			children = (
+				8A57505E27960852000CAD81 /* Bavaria.png */,
+				8A57506127960852000CAD81 /* Estrella Damm.png */,
+				8A57506027960852000CAD81 /* Estrella Galicia.png */,
+				8A57505D27960852000CAD81 /* Heineken.png */,
+				8A57505C27960852000CAD81 /* Leffe.png */,
+				8A57505F27960852000CAD81 /* Mahou.png */,
 			);
 			path = Fabricantes;
 			sourceTree = "<group>";
@@ -213,9 +234,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A57506327960852000CAD81 /* Heineken.png in Resources */,
 				8A692D31276D497000D64504 /* LaunchScreen.storyboard in Resources */,
 				8A692D2E276D497000D64504 /* Assets.xcassets in Resources */,
+				8A57506727960852000CAD81 /* Estrella Damm.png in Resources */,
+				8A57506627960852000CAD81 /* Estrella Galicia.png in Resources */,
+				8A57506427960852000CAD81 /* Bavaria.png in Resources */,
+				8A57506227960852000CAD81 /* Leffe.png in Resources */,
 				8A32F4CC2790F930002111E0 /* cerveza.png in Resources */,
+				8A57506527960852000CAD81 /* Mahou.png in Resources */,
 				8A692D2C276D496E00D64504 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A57505B27960129000CAD81 /* AddBeerView.swift in Sources */,
 				8AF8EA97277110AC00E531B1 /* BeersView.swift in Sources */,
 				8A692D29276D496E00D64504 /* BeerMakersView.swift in Sources */,
 				8AF8EA99277110EB00E531B1 /* SingleBeerView.swift in Sources */,

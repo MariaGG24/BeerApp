@@ -15,6 +15,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tv = UITableView()
     var constraints = [NSLayoutConstraint]()
     var botonAtras = UIButton()
+    var botonAdd = UIButton()
     var etiqueta = UILabel()
     var coleccionFabricantes = [Fabricante]()
     var tiposCerveza = [String]()
@@ -36,6 +37,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         view.addSubview(tv)
         view.addSubview(botonAtras)
+        view.addSubview(botonAdd)
         view.addSubview(etiqueta)
         
         NSLayoutConstraint.activate(constraints)
@@ -83,6 +85,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         sbv.seccion = indexPath.section
         sbv.fila = indexPath.row
         sbv.filasSec = filasSeccion
+        i = 0
         present(sbv, animated: true, completion: nil)
     }
     
@@ -98,13 +101,21 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         botonAtras.layer.cornerRadius = 4
         botonAtras.backgroundColor = .lightGray
         botonAtras.addTarget(self, action: #selector(BeersView.atras), for: .touchUpInside)
+        
+        botonAdd.translatesAutoresizingMaskIntoConstraints = false
+        botonAdd.setTitle("Añadir cerveza", for: .normal)
+        botonAdd.setTitleColor(.blue, for: .normal)
+        botonAdd.contentHorizontalAlignment = .center
+        botonAdd.layer.cornerRadius = 4
+        botonAdd.backgroundColor = .lightGray
+        botonAdd.addTarget(self, action: #selector(BeersView.addCerveza), for: .touchUpInside)
     }
     
     func prepararEtiqueta() {
         etiqueta.translatesAutoresizingMaskIntoConstraints = false
         etiqueta.textColor = .systemBrown
         etiqueta.textAlignment = .center
-        etiqueta.text = "Listado de Cervezas de " //Añadir nombre de la marca
+        etiqueta.text = "Listado de Cervezas de " + coleccionFabricantes[fila].nombre
         etiqueta.font = UIFont(name: "Chalkduster", size: 20.0)
     }
     
@@ -117,9 +128,15 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         constraints.append(tv.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
         constraints.append(tv.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20))
         
+        constraints.append(botonAdd.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
+        constraints.append(botonAdd.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
+        constraints.append(botonAdd.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        
         constraints.append(botonAtras.topAnchor.constraint(equalTo: tv.bottomAnchor, constant: 20))
         constraints.append(botonAtras.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
-        constraints.append(botonAtras.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        constraints.append(botonAtras.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20))
+        constraints.append(botonAtras.centerYAnchor.constraint(equalTo: botonAdd.centerYAnchor))
+        constraints.append(botonAtras.widthAnchor.constraint(equalTo: botonAdd.widthAnchor))
     }
     
     func prepararInformacionFabricante() {
@@ -161,6 +178,15 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @objc func atras(_ sender : UIButton){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func addCerveza(_ sender : UIButton){
+        let abv = AddBeerView()
+        abv.bv = self
+        abv.modalTransitionStyle = .flipHorizontal
+        abv.modalPresentationStyle = .formSheet
+        i = 0
+        present(abv, animated: true, completion: nil)
     }
 }
 
