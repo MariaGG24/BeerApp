@@ -9,6 +9,7 @@
 
 import UIKit
 
+//class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var etiqueta = UILabel()

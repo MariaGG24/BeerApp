@@ -189,6 +189,8 @@ class AddBeerView : UIViewController {
             cervezaNueva.graduacion = Float(campoGraduacion.text ?? "0.0") ?? 0.0
             cervezaNueva.aporteCalorico = Float(campoAporteCalorico.text ?? "0.0") ?? 0.0
             bv?.cervezasOrdenadas.append(cervezaNueva)
+            bv?.fabricante.cervezas.append(cervezaNueva)
+            bv?.p = 0
             bv?.tiposCerveza.append(cervezaNueva.tipo)
             bv?.filasSeccion.append(1)
             bv?.tv.reloadData()
@@ -213,6 +215,8 @@ class AddBeerView : UIViewController {
                             cervezaNueva.graduacion = Float(campoGraduacion.text ?? "0.0") ?? 0.0
                             cervezaNueva.aporteCalorico = Float(campoAporteCalorico.text ?? "0.0") ?? 0.0
                             bv?.cervezasOrdenadas.insert(cervezaNueva, at: pos)
+                            bv?.fabricante.cervezas.append(cervezaNueva)
+                            bv?.p = 0
                             bv?.filasSeccion[i] = (bv?.filasSeccion[i])! + 1
                             bv?.tv.reloadData()
                             dismiss(animated: true, completion: nil)
@@ -232,6 +236,8 @@ class AddBeerView : UIViewController {
                 cervezaNueva.graduacion = Float(campoGraduacion.text ?? "0.0") ?? 0.0
                 cervezaNueva.aporteCalorico = Float(campoAporteCalorico.text ?? "0.0") ?? 0.0
                 bv?.cervezasOrdenadas.append(cervezaNueva)
+                bv?.fabricante.cervezas.append(cervezaNueva)
+                bv?.p = 0
                 bv?.tiposCerveza.append(cervezaNueva.tipo)
                 bv?.filasSeccion.append(1)
                 bv?.tv.reloadData()

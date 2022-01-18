@@ -140,9 +140,9 @@ class SingleBeerView : UIViewController {
         campoTipo.borderStyle = .roundedRect
         
         iV.translatesAutoresizingMaskIntoConstraints = false
-        iV.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        iV.frame = CGRect(x: 0, y: 0, width: 500, height: 500)
         iV.image = UIImage(named: cervezaElegida.nombre + ".jpg")
-        iV.contentMode = .scaleAspectFill
+        iV.contentMode = .scaleToFill
     }
     
     func prepararConstraints() {
@@ -175,7 +175,7 @@ class SingleBeerView : UIViewController {
         constraints.append(campoTipo.leadingAnchor.constraint(equalTo: tipo.trailingAnchor, constant: 20))
         
         constraints.append(botonHecho.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
-        constraints.append(botonHecho.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        constraints.append(botonHecho.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20))
     }
     
     @objc func hecho(_ sender : UIButton) {
