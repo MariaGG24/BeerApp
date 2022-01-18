@@ -84,7 +84,7 @@ class BeerMakersView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let bv = BeersView()
-        bv.modalPresentationStyle = .formSheet
+        bv.modalPresentationStyle = .currentContext
         bv.modalTransitionStyle = .flipHorizontal
         bv.bmv = self
         bv.fila = indexPath.row

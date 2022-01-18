@@ -22,7 +22,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var cervezasOrdenadas = [Cerveza]()
     var fabricante = Fabricante()
     var filasSeccion = [Int]()
-    var i = 0
+    var p = 0
     var fila = 0
     
     override func loadView() {
@@ -69,8 +69,9 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell?.contentView.layer.cornerRadius = 16
         
         cell?.textLabel?.textAlignment = .center
-        cell?.textLabel?.text = cervezasOrdenadas[i].nombre
-        i = i + 1
+        cell?.textLabel?.text = cervezasOrdenadas[p].nombre
+        cell?.imageView?.image = UIImage(named: cervezasOrdenadas[p].nombre + ".jpg")
+        p = p + 1
         
         return cell!
     }
@@ -85,7 +86,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         sbv.seccion = indexPath.section
         sbv.fila = indexPath.row
         sbv.filasSec = filasSeccion
-        i = 0
+        p = 0
         present(sbv, animated: true, completion: nil)
     }
     
@@ -120,7 +121,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func prepararConstraints() {
-        constraints.append(etiqueta.topAnchor.constraint(equalTo: view.topAnchor, constant: 10))
+        constraints.append(etiqueta.topAnchor.constraint(equalTo: view.topAnchor, constant: 40))
         constraints.append(etiqueta.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 108))
         constraints.append(etiqueta.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -108))
         
@@ -177,6 +178,16 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func atras(_ sender : UIButton){
+        coleccionFabricantes[fila] = fabricante
+        if coleccionFabricantes[0].pais == "España"
+        {
+            bmv?.fabricantesNacionales = coleccionFabricantes
+        }
+        else
+        {
+            bmv?.fabricantesExtranjeros = coleccionFabricantes
+        }
+        bmv?.tv.reloadData()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -185,7 +196,7 @@ class BeersView : UIViewController, UITableViewDataSource, UITableViewDelegate {
         abv.bv = self
         abv.modalTransitionStyle = .flipHorizontal
         abv.modalPresentationStyle = .formSheet
-        i = 0
+        p = 0
         present(abv, animated: true, completion: nil)
     }
 }

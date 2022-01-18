@@ -113,11 +113,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func crearDatosIniciales() {
         let nombres = ["Mahou", "Estrella Galicia", "Heineken", "Leffe", "Estrella Damm", "Bavaria"]
         let paises = ["España", "España", "Países Bajos", "Bélgica", "España", "Colombia"]
+        let anosCreacion = [1890, 1906, 1864, 1240, 1876, 1889]
         
         for i in 0..<nombres.count {
             let fabricante = Fabricante()
             fabricante.nombre = nombres[i]
             fabricante.pais = paises[i]
+            fabricante.creacion = anosCreacion[i]
             fabricante.cervezas = insertarCervezas(fabricante.nombre)
             let im = UIImage(named: fabricante.nombre + ".jpg")!
             fabricante.setLogo(im)
@@ -155,7 +157,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else if fab == "Estrella Galicia"
         {
             let c = Cerveza()
-            c.nombre = "Estrella Galicia Especial"
+            c.nombre = "Estrella Galicia"
             c.aporteCalorico = 47.0
             c.graduacion = 5.5
             c.tipo = "Lager Especial"

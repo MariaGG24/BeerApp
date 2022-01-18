@@ -14,6 +14,7 @@ class AddBeerView : UIViewController {
     var constraints = [NSLayoutConstraint]()
     var etiqueta = UILabel()
     var botonHecho = UIButton()
+    var botonAtras = UIButton()
     var et = UILabel()
     var et2 = UILabel()
     var et3 = UILabel()
@@ -44,6 +45,7 @@ class AddBeerView : UIViewController {
         view.addSubview(campoGraduacion)
         view.addSubview(campoAporteCalorico)
         view.addSubview(botonHecho)
+        view.addSubview(botonAtras)
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -64,6 +66,14 @@ class AddBeerView : UIViewController {
         botonHecho.layer.cornerRadius = 4
         botonHecho.backgroundColor = .lightGray
         botonHecho.addTarget(self, action: #selector(AddBeerView.hecho), for: .touchUpInside)
+        
+        botonAtras.translatesAutoresizingMaskIntoConstraints = false
+        botonAtras.setTitle("Atrás", for: .normal)
+        botonAtras.setTitleColor(.blue, for: .normal)
+        botonAtras.contentHorizontalAlignment = .center
+        botonAtras.layer.cornerRadius = 4
+        botonAtras.backgroundColor = .lightGray
+        botonAtras.addTarget(self, action: #selector(AddBeerView.atras), for: .touchUpInside)
     }
     
     func prepararElementosAdicion() {
@@ -159,14 +169,22 @@ class AddBeerView : UIViewController {
         
         constraints.append(botonHecho.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
         constraints.append(botonHecho.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        constraints.append(botonAtras.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10))
+        constraints.append(botonAtras.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20))
+        constraints.append(botonAtras.centerYAnchor.constraint(equalTo: botonHecho.centerYAnchor))
+        constraints.append(botonAtras.widthAnchor.constraint(equalTo: botonHecho.widthAnchor))
     }
     
     @objc func hecho(_ sender : UIButton){
         
-        if campoTipo.text == ""
+        if campoTipo.text == "" && campoNombre.text == "" && campoGraduacion.text == "" && campoAporteCalorico.text == ""
+        {
+            dismiss(animated: true, completion: nil)
+        }
+        else if campoTipo.text == ""
         {
             let cervezaNueva = Cerveza()
-            cervezaNueva.nombre = "Sin nombre"
+            cervezaNueva.nombre = campoNombre.text ?? "Sin nombre"
             cervezaNueva.tipo = "Sin tipo"
             cervezaNueva.graduacion = Float(campoGraduacion.text ?? "0.0") ?? 0.0
             cervezaNueva.aporteCalorico = Float(campoAporteCalorico.text ?? "0.0") ?? 0.0
@@ -220,5 +238,9 @@ class AddBeerView : UIViewController {
                 dismiss(animated: true, completion: nil)
             }
         }
+    }
+    
+    @objc func atras (_ sender : UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }

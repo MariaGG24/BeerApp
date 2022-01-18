@@ -141,27 +141,27 @@ class SingleBeerView : UIViewController {
         
         iV.translatesAutoresizingMaskIntoConstraints = false
         iV.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        iV.image = UIImage(named: "cerveza.jpg") //Añadir aquí nombre de la foto que coincida con el de la cerveza para la foto
-        iV.contentMode = .scaleAspectFit
+        iV.image = UIImage(named: cervezaElegida.nombre + ".jpg")
+        iV.contentMode = .scaleAspectFill
     }
     
     func prepararConstraints() {
-        constraints.append(etiqueta.topAnchor.constraint(equalTo: view.topAnchor, constant: 10))
+        constraints.append(etiqueta.topAnchor.constraint(equalTo: view.topAnchor, constant: 50))
         constraints.append(etiqueta.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 108))
         constraints.append(etiqueta.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -108))
         
-        constraints.append(nombre.topAnchor.constraint(equalTo: etiqueta.bottomAnchor, constant: 30))
-        constraints.append(nombre.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        constraints.append(nombre.topAnchor.constraint(equalTo: etiqueta.bottomAnchor, constant: 40))
+        constraints.append(nombre.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40))
         constraints.append(graduacion.topAnchor.constraint(equalTo: nombre.bottomAnchor, constant: 20))
-        constraints.append(graduacion.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        constraints.append(graduacion.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40))
         constraints.append(aporteCalorico.topAnchor.constraint(equalTo: graduacion.bottomAnchor, constant: 20))
-        constraints.append(aporteCalorico.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        constraints.append(aporteCalorico.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40))
         constraints.append(tipo.topAnchor.constraint(equalTo: aporteCalorico.bottomAnchor, constant: 20))
-        constraints.append(tipo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20))
+        constraints.append(tipo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40))
         constraints.append(iV.topAnchor.constraint(equalTo: tipo.bottomAnchor, constant: 20))
         constraints.append(iV.centerXAnchor.constraint(equalTo: view.centerXAnchor))
         
-        constraints.append(campoNombre.topAnchor.constraint(equalTo: etiqueta.bottomAnchor, constant: 30))
+        constraints.append(campoNombre.topAnchor.constraint(equalTo: etiqueta.bottomAnchor, constant: 40))
         constraints.append(campoNombre.centerYAnchor.constraint(equalTo: nombre.centerYAnchor))
         constraints.append(campoNombre.leadingAnchor.constraint(equalTo: nombre.trailingAnchor, constant: 20))
         constraints.append(campoGraduacion.topAnchor.constraint(equalTo: campoNombre.bottomAnchor, constant: 20))
@@ -180,12 +180,17 @@ class SingleBeerView : UIViewController {
     
     @objc func hecho(_ sender : UIButton) {
         
-        if campoNombre.text != cervezas[pos].nombre
+        if campoNombre.text == "" && campoTipo.text == "" && campoGraduacion.text == "" && campoAporteCalorico.text == ""
+        {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        if campoNombre.text != cervezas[pos].nombre && campoNombre.text != ""
         {
             cervezaElegida.nombre = campoNombre.text ?? "Sin nombre"
         }
         
-        if campoTipo.text != cervezas[pos].tipo
+        if campoTipo.text != cervezas[pos].tipo && campoTipo.text != ""
         {
             for i in 0..<(bv?.tiposCerveza.count)!
             {
@@ -202,12 +207,12 @@ class SingleBeerView : UIViewController {
             cervezaElegida.tipo = campoTipo.text ?? "Sin tipo"
         }
                     
-        if campoGraduacion.text != String(cervezas[pos].graduacion)
+        if campoGraduacion.text != String(cervezas[pos].graduacion) && campoGraduacion.text != ""
         {
             cervezaElegida.graduacion = Float(campoGraduacion.text ?? "0.0") ?? 0.0
         }
         
-        if campoAporteCalorico.text != String(cervezas[pos].aporteCalorico)
+        if campoAporteCalorico.text != String(cervezas[pos].aporteCalorico) && campoAporteCalorico.text != ""
         {
             cervezaElegida.aporteCalorico = Float(campoAporteCalorico.text ?? "0.0") ?? 0.0
         }
