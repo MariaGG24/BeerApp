@@ -453,7 +453,7 @@ class VistaNuevoFabricante : UIViewController {
             let fabricanteNuevo = Fabricante()
             fabricanteNuevo.nombre = campoNombre.text ?? "Sin nombre"
             fabricanteNuevo.pais = campoPais.text ?? "Sin país"
-            fabricanteNuevo.creacion = campoAno.text ?? "1900"
+            fabricanteNuevo.creacion = Int(campoAno.text ?? "1900") ?? 1900
             vm?.fabricantesNacionales.append(fabricanteNuevo) //Se llama a cargarDatos o algo así??
             vm?.tv.reloadData()
             dismiss(animated: true, completion: nil)
@@ -463,7 +463,7 @@ class VistaNuevoFabricante : UIViewController {
             let fabricanteNuevo = Fabricante()
             fabricanteNuevo.nombre = campoNombre.text ?? "Sin nombre"
             fabricanteNuevo.pais = campoPais.text ?? "Sin país"
-            fabricanteNuevo.creacion = campoAno.text ?? "1900"
+            fabricanteNuevo.creacion = Int(campoAno.text ?? "1900") ?? 1900
             vm?.fabricantesExtranjeros.append(fabricanteNuevo)
             vm?.tv.reloadData()
             dismiss(animated: true, completion: nil)
